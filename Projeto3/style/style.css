@@ -1,9 +1,21 @@
-P {
+/* Comentários
+    de 
+        múltiplas
+            linhas
+*/
+
+p {
     color: blue;
-    text-align: center;
+    /* text-transform: uppercase; */
+    /* text-transform: lowercase; */
+    /* text-transform: capitalize; */
+    /* text-decoration: underline; */
+    /* text-decoration: overline; */
+    /* text-decoration: line-through; */
+
+
 }
 
-h2 {
-    font-weight: bold;
-    font-style: italic;
-}
+h1{
+    text-align: center;
+}   
