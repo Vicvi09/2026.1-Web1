@@ -1,36 +1,47 @@
 function iniciar() {
 
-    var valor = parseInt(document.getElementById("iptQtd").value);
+    var valor = document.getElementById("iptQtd").value;
 
-    var spnNumber = document.getElementById("spnNumber");
+    valor = parseInt(valor);
 
     if (isNaN(valor)) {
-        spnNumber.innerHTML = "Digite um número!";
+        alert("Digite um número!");
         return;
     }
 
-    if (valor % 2 === 0) {
-        spnNumber.innerHTML = valor + " é PAR";
-    } else {
-        spnNumber.innerHTML = valor + " é ÍMPAR";
-    }
+    var spnRes = document.createElement("span");
+
+    spnRes.style.width = "50px";
+    spnRes.style.height = "50px";
+    spnRes.style.width = "50px";
+    spnRes.style.height = "50px";
+    spnRes.style.display = "inline-flex";
+    spnRes.style.justifyContent = "center";
+    spnRes.style.alignItems = "center";
+    spnRes.style.margin = "3px";
+    var cores = ["red", "blue", "green", "purple", "orange", "pink", "yellow", "brown", "gray", "black"];
+
+    var corAleatoria = cores[Math.floor(Math.random() * cores.length)];
+
+    spnRes.style.backgroundColor = corAleatoria;
+    spnRes.style.color = "white";
+
+    spnRes.innerHTML = valor;
+
+    document.getElementById("principal").appendChild(spnRes);
+
 }
 
-function verificar() {
+function removerAleatorio() {
 
-    var valor = parseInt(document.getElementById("iptQtd").value);
+    var principal = document.getElementById("principal");
 
-    var spnNumber = document.querySelector("#spnNumber");
+    var elementos = principal.children;
 
-    if (!isNaN(valor)) {
+    if (elementos.length > 0) {
 
-        if (valor % 2 === 0) {
-            spnNumber.textContent = valor + " é PAR";
-        } else {
-            spnNumber.textContent = valor + " é ÍMPAR";
-        }
+        var indice = Math.floor(Math.random() * elementos.length);
 
-    } else {
-        spnNumber.textContent = "Digite um número!";
+        principal.removeChild(elementos[indice]);
     }
 }
