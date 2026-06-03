@@ -1,31 +1,77 @@
-function somar(){
-    var x_obj = document.getElementById("iptX");
+var numSorteado;
 
-    var x = x_obj.value;
+function iniciar(){
+    // alert("OI");
 
-    x = parseInt(x);
+    var valor = document.getElementById("iptQtd").value;
 
-    var y_obj = document.getElementById("iptY");
+    valor = parseInt(valor);
 
-    var y = y_obj.value;
+    sorteio(valor);
 
-    y = parseInt(y);
+    for (var k=0; k<valor; k++){
+        // spnRes = document.createElement("span");
 
-    var res = x + y;
+        spnRes = document.createElement("div");
+        spnRes.setAttribute("id", "box"+(k+1));
+        spnRes.style.display = "flex";
+        spnRes.style.border = "1px solid black";
+        spnRes.style.width = "100px";
+        spnRes.style.height = "100px";
+        spnRes.style.alignItems = "center";
+        spnRes.style.justifyContent = "center";
 
-    // alert(res);
+        spnRes.innerHTML = k+1;
 
-    var spnRes = document.querySelector("#spnRes");
+        spnRes.addEventListener("click", function (){
+            // alert("Olá Mundo");
+            this.style.backgroundColor = "red";
+            // alert(this.textContent);
+            // console.log(this.getAttribute("id"));
+            // this.remove();
+            conferencia(this.textContent);
+        });
 
-    spnRes.innerHTML = "Resultado da Soma é "+res;
+        document.getElementById("principal").appendChild(spnRes);
 
-    var bd = document.querySelector("body");
-
-    if (res % 2 == 0){
-        bd.style.backgroundColor = 'lightgreen';
-    }else{
-        bd.style.backgroundColor = 'gray';
     }
+
+    // var spnRes = document.getElementById("spnRes");
+}
+
+function conferencia(num){
+    if (num == numSorteado){
+        alert("Parabéns, você acertou o número sorteado!");
+        return;
+    }
+}
+
+// function olaFunction(){
+//     alert("Olá");
+// }
+
+function sorteio(quantidade){
+    numSorteado = Math.floor(Math.random() * quantidade) + 1;
+    console.log(numSorteado);
+} 
+
+
+function verificar(){
+    var valor = parseInt(document.getElementById("iptQtd").value);
+    // var valor = document.getElementById("iptQtd").value;
     
 
+    var spnNumber = document.querySelector("#spnNumber");
+    if (!(isNaN(valor))){
+        if (valor % 2 == 0){
+            spnNumber.textContent = valor + " é PAR";
+        }else{
+            spnNumber.textContent = valor + " é IMPAR";
+        }
+    }else{
+        spnNumber.textContent = "";
+    }
+    
+    // spnNumber.innerHTML = valor;
+    
 }
