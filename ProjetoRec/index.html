@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio CSS DOM - Cores</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Movimente as barras para construir sua cor.</h2>
+
+    <div class="cores">
+
+        <div id="painelR" class="painel">
+            <h3>Vermelho (R)</h3>
+
+            <input type="range" id="r" min="0" max="255" value="128">
+
+            <p id="valorR">128</p>
+        </div>
+
+        <div id="painelG" class="painel">
+            <h3>Verde (G)</h3>
+
+            <input type="range" id="g" min="0" max="255" value="128">
+
+            <p id="valorG">128</p>
+        </div>
+
+        <div id="painelB" class="painel">
+            <h3>Azul (B)</h3>
+
+            <input type="range" id="b" min="0" max="255" value="128">
+
+            <p id="valorB">128</p>
+        </div>
+
+    </div>
+
+    <div class="titulo-superior">cor resultante</div>
+
+    <div class="titulo-lateral">CORES BÁSICAS</div>
+    
+    <div class="titulo-inferior">cor resultante</div>
+
+
+</div>
+
+<script src="js/script.js"></script>
